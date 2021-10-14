@@ -2,8 +2,6 @@ import firebase from 'firebase/app'
 
 import 'firebase/firestore'
 
-//import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
-
 import firestore from '@react-native-firebase/app'
 
 const firebaseConfig = {
@@ -20,7 +18,7 @@ const firebaseConfig = {
   // Initialize Firebase
   //const firebase = initializeApp(firebaseConfig);
     firebase.initializeApp(firebaseConfig);
-    const db = firebase.firestore();
+    const baseDatos = firebase.firestore();
 
   // Segunda forma
   //export default app.initializeApp(firebaseConfig);
@@ -29,5 +27,5 @@ const firebaseConfig = {
   // Primera forma 
   export default {
       firebase,
-      db,
+      baseDatos,
   };
