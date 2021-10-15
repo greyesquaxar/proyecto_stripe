@@ -100,7 +100,7 @@ const DetallesUsuario = (props) => {
         <Button title="Actualizar" onPress={() => actualizarUsuario() } />
       </View>
       <View>
-        <Button title="Eliminar" onPress={() => confirmarEliminacion() } />
+        <Button  title="Eliminar" onPress={() => confirmarEliminacion() } />
       </View>
     </ScrollView>
   );

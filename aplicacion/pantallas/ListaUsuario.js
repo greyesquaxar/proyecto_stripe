@@ -46,6 +46,10 @@ const ListaUsuario = (props) => {
         title="Crear usuario"
         onPress={() => props.navigation.navigate("CrearUsuario")}
       />
+      <Button
+        title="Ir a agregar producto"
+        onPress={() => props.navigation.navigate("AgregarProducto")}
+      />
     </ScrollView>
   );
 };

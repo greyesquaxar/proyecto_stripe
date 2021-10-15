@@ -3,31 +3,29 @@ import { View, Button, TextInput, ScrollView, StyleSheet } from 'react-native'
 import firebase from '../database/firebase'
 
 
-const CrearUsuario = (props) => {
+const AgregarProducto = (props) => {
 
     const [state, setstate] = useState({
         nombre: '',
-        correo: '',
-        celular: '',
+        precio: '',
     })
 
     const handleChangeText = (nombre, value) => {
         setstate({...state, [nombre]: value})
     }
 
-    const guardarNuevoUsuario = async () => {
+    const guardarNuevoPrducto = async () => {
         if (state.nombre === ''){
             alert('Por favor ingrese un nombre')
         } else {
             //Manejo de errores
             try {
-                await firebase.baseDatos.collection('usuario').add({
+                await firebase.baseDatos.collection('producto').add({
                     nombre: state.nombre,
-                    correo: state.correo,
-                    celular: state.celular 
+                    precio: state.precio, 
                 })
                 //alert('Usuario guardado')
-                props.navigation.navigate('ListaUsuario');
+                props.navigation.navigate('ListaProducto');
             } catch (error) {
                 console.log(error);
             }
@@ -37,18 +35,14 @@ const CrearUsuario = (props) => {
     return (
         <ScrollView style = {styles.container} >
             <View style = {styles.inputGroup} >
-                <TextInput placeholder = "Nombre de usuario" onChangeText={(value) => handleChangeText('nombre', value) } />
+                <TextInput placeholder = "Producto" onChangeText={(value) => handleChangeText('nombre', value) } />
             </View>
             <View style = {styles.inputGroup} >
-                <TextInput placeholder = "Correo electronico" onChangeText={(value) => handleChangeText('correo', value) } />
-            </View>
-            <View style = {styles.inputGroup} >
-                <TextInput placeholder = "Numero de celular" onChangeText={(value) => handleChangeText('celular', value) } />
+                <TextInput placeholder = "Precio" onChangeText={(value) => handleChangeText('precio', value) } />
             </View>
             <View>
-                <Button title = "Guardar usuario" onPress = {()=> guardarNuevoUsuario() } />
+                <Button title = "Guardar producto" onPress = {()=> guardarNuevoPrducto() } />
             </View>
-
         </ScrollView>
     )
 }
@@ -67,4 +61,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default CrearUsuario
+export default AgregarProducto

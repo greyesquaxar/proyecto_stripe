@@ -7,6 +7,9 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import ListaUsuario from "./pantallas/ListaUsuario";
 import CrearUsuario from "./pantallas/CrearUsuario";
 import DetallesUsuario from "./pantallas/DetallesUsuario";
+import AgregarProducto from './pantallas/AgregarProducto'
+import ListaProducto from './pantallas/ListaProducto'
+import DetallesProducto from "./pantallas/DetallesProducto";
 
 const Stack = createNativeStackNavigator();
 
@@ -27,6 +30,21 @@ function MyStack() {
         name="DetallesUsuario"
         component={DetallesUsuario}
         options={{ title: "Información del usuario" }}
+      />
+        <Stack.Screen
+        name="AgregarProducto"
+        component={AgregarProducto}
+        options={{ title: "Agregar producto" }}
+      />
+        <Stack.Screen
+        name="ListaProducto"
+        component={ListaProducto}
+        options={{ title: "Inventario" }}
+      />
+        <Stack.Screen
+        name="DetallesProducto"
+        component={DetallesProducto}
+        options={{ title: "Inventario" }}
       />
     </Stack.Navigator>
   );
