@@ -44,7 +44,7 @@ const DetallesUsuario = (props) => {
   const eliminarUsuario = async () => {
       const dbRef = firebase.baseDatos.collection('usuario').doc(props.route.params.usuarioId);
       await dbRef.delete();
-      props.navigation.navigate('ListaUsuario')
+      props.navigation.navigate('Usuarios')
   }
 
   const actualizarUsuario = async () => {
@@ -55,7 +55,7 @@ const DetallesUsuario = (props) => {
       celular: usuario.celular
     })
     setUsuario(estadoInicial)
-    props.navigation.navigate('ListaUsuario')
+    props.navigation.navigate('Usuarios')
   }
 
   const confirmarEliminacion = () => {

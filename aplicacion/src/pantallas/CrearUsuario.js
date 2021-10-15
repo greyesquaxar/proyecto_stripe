@@ -3,29 +3,31 @@ import { View, Button, TextInput, ScrollView, StyleSheet } from 'react-native'
 import firebase from '../database/firebase'
 
 
-const AgregarProducto = (props) => {
+const CrearUsuario = (props) => {
 
     const [state, setstate] = useState({
         nombre: '',
-        precio: '',
+        correo: '',
+        celular: '',
     })
 
     const handleChangeText = (nombre, value) => {
         setstate({...state, [nombre]: value})
     }
 
-    const guardarNuevoPrducto = async () => {
+    const guardarNuevoUsuario = async () => {
         if (state.nombre === ''){
             alert('Por favor ingrese un nombre')
         } else {
             //Manejo de errores
             try {
-                await firebase.baseDatos.collection('producto').add({
+                await firebase.baseDatos.collection('usuario').add({
                     nombre: state.nombre,
-                    precio: state.precio, 
+                    correo: state.correo,
+                    celular: state.celular 
                 })
                 //alert('Usuario guardado')
-                props.navigation.navigate('ListaProducto');
+                props.navigation.navigate('Usuarios');
             } catch (error) {
                 console.log(error);
             }
@@ -35,14 +37,18 @@ const AgregarProducto = (props) => {
     return (
         <ScrollView style = {styles.container} >
             <View style = {styles.inputGroup} >
-                <TextInput placeholder = "Producto" onChangeText={(value) => handleChangeText('nombre', value) } />
+                <TextInput placeholder = "Nombre de usuario" onChangeText={(value) => handleChangeText('nombre', value) } />
             </View>
             <View style = {styles.inputGroup} >
-                <TextInput placeholder = "Precio" onChangeText={(value) => handleChangeText('precio', value) } />
+                <TextInput placeholder = "Correo electronico" onChangeText={(value) => handleChangeText('correo', value) } />
+            </View>
+            <View style = {styles.inputGroup} >
+                <TextInput placeholder = "Numero de celular" onChangeText={(value) => handleChangeText('celular', value) } />
             </View>
             <View>
-                <Button title = "Guardar producto" onPress = {()=> guardarNuevoPrducto() } />
+                <Button title = "Guardar usuario" onPress = {()=> guardarNuevoUsuario() } />
             </View>
+
         </ScrollView>
     )
 }
@@ -61,4 +67,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default AgregarProducto
+export default CrearUsuario

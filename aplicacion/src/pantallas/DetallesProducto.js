@@ -43,7 +43,7 @@ const DetallesProducto = (props) => {
   const eliminarProducto = async () => {
       const dbRef = firebase.baseDatos.collection('producto').doc(props.route.params.productoId);
       await dbRef.delete();
-      props.navigation.navigate('ListaProducto')
+      props.navigation.navigate('Inventario')
   }
 
   const actualizarProducto = async () => {
@@ -53,7 +53,7 @@ const DetallesProducto = (props) => {
       precio: producto.precio,
     })
     setProducto(estadoInicial)
-    props.navigation.navigate('ListaProducto')
+    props.navigation.navigate('Inventario')
   }
 
   const confirmarEliminacion = () => {

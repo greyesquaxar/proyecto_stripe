@@ -29,7 +29,7 @@ const ListaUsuario = (props) => {
       {usuario.map((usuario) => {
         return (
           <ListItem key={usuario.id} bottomDivider onPress = {() => {
-              props.navigation.navigate('DetallesUsuario',{
+              props.navigation.navigate('Detalles del usuario',{
                 usuarioId: usuario.id
               })
           }  } >
@@ -44,11 +44,7 @@ const ListaUsuario = (props) => {
 
       <Button
         title="Crear usuario"
-        onPress={() => props.navigation.navigate("CrearUsuario")}
-      />
-      <Button
-        title="Ir a agregar producto"
-        onPress={() => props.navigation.navigate("AgregarProducto")}
+        onPress={() => props.navigation.navigate("Agregar nuevo usuario")}
       />
     </ScrollView>
   );

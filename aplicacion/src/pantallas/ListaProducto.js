@@ -4,6 +4,7 @@ import firebase from "../database/firebase";
 import { ListItem, Avatar } from "react-native-elements";
 
 const ListaProducto = (props) => {
+
   const [producto, setProducto] = useState([]);
   useEffect(() => {
     // Devuelve los datos almacenados hasta este momento en la BD
@@ -30,7 +31,7 @@ const ListaProducto = (props) => {
             key={producto.id}
             bottomDivider
             onPress={() => {
-              props.navigation.navigate("DetallesProducto", {
+              props.navigation.navigate("Detalles del producto", {
                 productoId: producto.id,
               });
             }}
@@ -45,8 +46,8 @@ const ListaProducto = (props) => {
       })}
 
       <Button
-        title="Crear producto"
-        onPress={() => props.navigation.navigate("CrearProducto")}
+        title="Agregar producto"
+        onPress={() => props.navigation.navigate("Agregar producto")}
       />
     </ScrollView>
   );
